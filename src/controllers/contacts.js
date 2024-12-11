@@ -23,7 +23,9 @@ export const getContactsController = async (req, res) => {
     sortBy,
     sortOrder,
     filter,
+    userId: req.user.id,
   });
+
   res.json({
     status: 200,
     message: 'Successfully found contacts!',
@@ -39,6 +41,12 @@ export const getContactByIdController = async (req, res) => {
     throw createHttpError(404, 'Contact not found');
   }
 
+  // //Якщо використовуємо цю умову то в services використовуємо 56 рядок, а якщо використовуємо getContactById 61 рядок то цю умову не використовуємо
+  // if (contact.userId.toString() !== req.user.id.toString()) {
+  //   // throw new createHttpError.Forbidden('Contacts forbidden!')//Академічно потрібно цей рядок але використовують
+  //   throw new createHttpError.NotFound('Contact not found'); //Щоб заплутати небажаного користувача
+  // }
+
   res.json({
     status: 200,
     message: `Successfully found contact with id ${contactId}!`,
@@ -47,12 +55,20 @@ export const getContactByIdController = async (req, res) => {
 };
 
 export const createContactController = async (req, res) => {
-  const contact = await createContact(req.body);
+  const contact = {
+    name: req.body.name,
+    phoneNumber: req.body.phoneNumber,
+    email: req.body.email,
+    contactType: req.body.contactType,
+    userId: req.user.id,
+  };
+
+  const result = await createContact(contact);
 
   res.status(201).json({
     status: 201,
     message: 'Successfully created a contact!',
-    data: contact,
+    data: result,
   });
 };
 
