@@ -30,6 +30,7 @@ export const createContactSchema = Joi.object({
       'any.required':
         "The field must contain one of three fields 'work', 'home', 'personal'",
     }),
+  photo: Joi.string().optional(),
 });
 
 export const updateContactSchema = Joi.object({
@@ -53,4 +54,5 @@ export const updateContactSchema = Joi.object({
     'string.base': 'Field should be a string',
     'string.valid': 'Email must be in the format *@*.*',
   }),
+  photo: Joi.string().optional(),
 });

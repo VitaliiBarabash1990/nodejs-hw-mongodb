@@ -9,6 +9,7 @@ import { env } from './utils/env.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import cookieParser from 'cookie-parser';
+import { UPLOAD_DIR } from './constants/index.js';
 
 const PORT = Number(env('PORT', '3000'));
 
@@ -32,6 +33,8 @@ const setupServer = () => {
       message: 'Hello world!',
     });
   });
+
+  app.use('/uploads', express.static(UPLOAD_DIR));
 
   // app.use(contactsRouter);
 
