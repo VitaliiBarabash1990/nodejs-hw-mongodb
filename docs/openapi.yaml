@@ -10,8 +10,8 @@ tags:
   - name: Contacts
     description: Operation with contacts
 servers:
-  - url: http://localhost:3000
-  # - url: https://nodejs-hw-mongodb-2hns.onrender.com
+  - url: http://127.0.0.1:3000
+  - url: https://nodejs-hw-mongodb-1-l8lj.onrender.com
 paths:
   /contacts:
     post:
