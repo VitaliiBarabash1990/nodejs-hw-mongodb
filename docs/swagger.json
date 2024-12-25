@@ -184,6 +184,27 @@
               ],
               "example": "asc"
             }
+          },
+          {
+            "in": "query",
+            "name": "contactType",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "work",
+                "home",
+                "personal"
+              ],
+              "example": "work"
+            }
+          },
+          {
+            "in": "query",
+            "name": "IsFavourite",
+            "schema": {
+              "type": "string",
+              "example": "true"
+            }
           }
         ],
         "responses": {
@@ -495,16 +516,11 @@
       "contact": {
         "type": "object",
         "required": [
-          "_id",
           "name",
           "phoneNumber",
           "email",
-          "isFavourite",
           "contactType",
-          "userId",
-          "photo",
-          "createdAt",
-          "updatedAt"
+          "userId"
         ],
         "properties": {
           "_id": {
@@ -530,8 +546,7 @@
           "isFavorite": {
             "description": "Favorite contact",
             "type": "boolean",
-            "example": false,
-            "default": false
+            "example": false
           },
           "contactType": {
             "description": "Contact's type",
@@ -541,8 +556,7 @@
               "home",
               "personal"
             ],
-            "example": "work",
-            "default": "work"
+            "example": "work"
           },
           "userId": {
             "description": "Contact's user id",
@@ -552,8 +566,7 @@
           "photo": {
             "description": "Contact's photo",
             "type": "string",
-            "example": "https://res.cloudinary.com/drmqponzf/image/upload/v1734435583/iwl0vrmfkhwldqu4byxd.jpg",
-            "default": null
+            "example": "https://res.cloudinary.com/drmqponzf/image/upload/v1734435583/iwl0vrmfkhwldqu4byxd.jpg"
           },
           "createdAt": {
             "description": "Timestamp when the contact was created",
