@@ -45,11 +45,7 @@
                 "required": [
                   "name",
                   "phoneNumber",
-                  "email",
-                  "isFavourite",
-                  "contactType",
-                  "userId",
-                  "photo"
+                  "contactType"
                 ],
                 "properties": {
                   "name": {
@@ -81,11 +77,6 @@
                       "personal"
                     ],
                     "example": "work"
-                  },
-                  "userId": {
-                    "description": "User's ID associated with the contact",
-                    "type": "string",
-                    "example": "67600db56af6ff87cfb44dce"
                   },
                   "photo": {
                     "description": "Contact's photo",
@@ -343,6 +334,9 @@
           "401": {
             "$ref": "#/components/responses/401"
           },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
           "500": {
             "$ref": "#/components/responses/500"
           }
@@ -446,11 +440,6 @@
                       "personal"
                     ],
                     "example": "work"
-                  },
-                  "userId": {
-                    "description": "User's ID associated with the contact",
-                    "type": "string",
-                    "example": "67600db56af6ff87cfb44dce"
                   },
                   "photo": {
                     "description": "Contact's photo",
