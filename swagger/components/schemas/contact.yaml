@@ -1,8 +1,8 @@
 type: object
 required:
+  - _id
   - name
   - phoneNumber
-  - email
   - contactType
   - userId
 properties:
@@ -22,10 +22,6 @@ properties:
     description: "Contact's email"
     type: string
     example: 'johndoe@gmail.com'
-  isFavorite:
-    description: 'Favorite contact'
-    type: boolean
-    example: false
   contactType:
     description: "Contact's type"
     type: string
